@@ -1,4 +1,4 @@
-const sneakers = [
+export const sneakersStock = [
     {
         "id": 1,
         "brand": "Nike",
