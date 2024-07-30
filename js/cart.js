@@ -1,10 +1,17 @@
 import { sneakers } from './main.js'
 
 const cartBtn = document.querySelector('#btn-cart');
-const cartBody = document.querySelector('#cart-body');
+const itemsCartContainer = document.querySelector('#items-cart-container');
 const itemsCount = document.querySelector('#items-count');
+const btnClearCart = document.querySelector('#btn-clear-cart');
 
-export const shopCart = [];
+export const shopCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+const updateStorageCart = () => {
+	const cartJSON = JSON.stringify(shopCart);
+	localStorage.setItem('cart', cartJSON);
+
+}
 
 export const addItemToCart = (id) => {
 	// Busca el item
@@ -20,6 +27,7 @@ export const addItemToCart = (id) => {
 			shopCart.push(item);
 		}
 	}
+	updateStorageCart();
 }
 
 const createItemCart = ({ brand, model, price, quantity }) => {
@@ -45,11 +53,11 @@ const countItems = (arr) => {
 
 export const handleButtonCart = () => {
 	cartBtn.addEventListener('click', () => {
-		cartBody.innerHTML = '';
+		itemsCartContainer.innerHTML = '';
 		for (let i = 0; i < shopCart.length; i++) {
 			const e = shopCart[i];
 			const itemRowCart = createItemCart(e);
-			cartBody.appendChild(itemRowCart);
+			itemsCartContainer.appendChild(itemRowCart);
 		};
 		itemsCount.textContent = `${countItems(shopCart)} items`;
 	})
