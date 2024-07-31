@@ -63,10 +63,34 @@ export const handleButtonCart = () => {
 	})
 }
 
+const clearCart = () => {
+	shopCart.splice(0);
+	updateStorageCart();
+}
+
 export const handleClearCart = () => {
 	btnClearCart.addEventListener('click', () => {
-		shopCart.splice(0);
-		updateStorageCart();
+
+		Swal.fire({
+			title: 'Are you sure to empty the cart?',
+			icon: 'warning',
+			showCancelButton: true,
+			showConfirmButton: true,
+			confirmButtonText: 'Clear',
+			cancelButtonText: 'Cancel'
+		})
+		.then(result => result.isConfirmed && (clearCart(), Swal.fire("It's done!", "", "success")));
 	});
 }
 
+export const alertProductAdded = ({ brand, model }) => {
+	Toastify({
+		text: `+ ${brand} ${model}`,
+		duration: 2000,
+		gravity: 'bottom',
+		style: {
+			background: '#454241',
+			color: 'white'
+		}
+		}).showToast();
+}

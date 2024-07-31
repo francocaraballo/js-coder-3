@@ -1,5 +1,5 @@
 import { getSneakers, createCard } from "./products.js";
-import { addItemToCart, handleButtonCart, handleClearCart } from "./cart.js";
+import { addItemToCart, handleButtonCart, handleClearCart, alertProductAdded } from "./cart.js";
 
 export const sneakers = getSneakers();
 
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const btnAddToCart = card.querySelector('.btn-add');
         btnAddToCart.onclick = function() {
             addItemToCart(sneaker.id);
+            alertProductAdded(sneaker);
         }
     }
     containerProducts.appendChild(dFrag);

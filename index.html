@@ -13,6 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 
@@ -36,32 +37,32 @@
     </nav>
   </header>
   <!-- Shop cart modal -->
-    <div class="modal fade" id="cart" tabindex="-1" aria-labelledby="shopCart" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header d-flex flex-column">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            <h1 class="modal-title fs-3" id="exampleModalLabel">Bag</h1>
-            <p id="items-count"></p>
+  <div class="modal fade" id="cart" tabindex="-1" aria-labelledby="shopCart" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header d-flex flex-column">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h1 class="modal-title fs-3" id="exampleModalLabel">Bag</h1>
+          <p id="items-count"></p>
+        </div>
+        <div class="modal-body" id="cart-body">
+          <div class="row mb-2 fw-bold fs-5">
+            <div class="col-6">Product</div>
+            <div class="col-3 text-center">Qty</div>
+            <div class="col-3 text-center">Total</div>
           </div>
-          <div class="modal-body" id="cart-body">
-            <div class="row mb-2 fw-bold fs-5">
-              <div class="col-6">Product</div>
-              <div class="col-3 text-center">Qty</div>
-              <div class="col-3 text-center">Total</div>
-            </div>
-            <div id="items-cart-container" class="row mb-2 ">
-              <!-- Items -->
-            </div>
+          <div id="items-cart-container" class="row mb-2 ">
+            <!-- Items -->
           </div>
-          <div class="modal-footer">
-            <!-- Button clear cart -->
-            <button id="btn-clear-cart" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
-            <button id="btn-pay" type="button" class="btn btn-primary">Pay</button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- Button clear cart -->
+          <button id="btn-clear-cart" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
+          <button id="btn-pay" type="button" class="btn btn-primary">Pay</button>
         </div>
       </div>
     </div>
+  </div>
   <main class="container-fluid p-5">
     <div id="container-products" class="row d-flex justify-content-center row-gap-4 column-gap-4">
       <!-- Products -->
@@ -75,6 +76,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="./js/main.js" type="module"></script>
 </body>
 
