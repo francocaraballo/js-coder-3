@@ -63,3 +63,10 @@ export const handleButtonCart = () => {
 	})
 }
 
+export const handleClearCart = () => {
+	btnClearCart.addEventListener('click', () => {
+		shopCart.splice(0);
+		updateStorageCart();
+	});
+}
+

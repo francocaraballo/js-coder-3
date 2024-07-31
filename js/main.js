@@ -1,11 +1,13 @@
 import { getSneakers, createCard } from "./products.js";
-import { addItemToCart, handleButtonCart } from "./cart.js";
+import { addItemToCart, handleButtonCart, handleClearCart } from "./cart.js";
 
 export const sneakers = getSneakers();
 
 document.addEventListener('DOMContentLoaded', () => {
     handleButtonCart();
+    handleClearCart();
 
+    // Se puede mejorar importando este codigo desde products.js
     const containerProducts = document.getElementById('container-products');
     const dFrag = document.createDocumentFragment();
 
