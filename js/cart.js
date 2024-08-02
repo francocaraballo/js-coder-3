@@ -4,13 +4,13 @@ const cartBtn = document.querySelector('#btn-cart');
 const itemsCartContainer = document.querySelector('#items-cart-container');
 const itemsCount = document.querySelector('#items-count');
 const btnClearCart = document.querySelector('#btn-clear-cart');
+const btnPay = document.querySelector('#btn-pay')
 
 export const shopCart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const updateStorageCart = () => {
 	const cartJSON = JSON.stringify(shopCart);
 	localStorage.setItem('cart', cartJSON);
-
 }
 
 export const addItemToCart = (id) => {
@@ -93,4 +93,23 @@ export const alertProductAdded = ({ brand, model }) => {
 			color: 'white'
 		}
 		}).showToast();
+}
+
+export const handlePay = () => {
+	btnPay.addEventListener('click', () => {
+		if(!shopCart.length){
+			Swal.fire({
+				icon: 'warning',
+				title: 'Cart is empty!'
+			});
+			
+		} else {
+			Swal.fire({
+				title: 'Payment success',
+				icon: 'success',
+				timer: 1500
+			});
+			clearCart();
+		}
+	})
 }
