@@ -1,5 +1,3 @@
-import { sneakersStock } from "./data/sneakers-stock.js";
-
 export const createCard = ( { id, brand, model, img, price } ) => {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -18,13 +16,18 @@ export const createCard = ( { id, brand, model, img, price } ) => {
                 return card;
 }
 
-// Get sneakers with fetch and add quantity property
+export const getSneakers = async () => {
+    const response = await fetch('js/data/sneakers.json');
+    const data =  await response.json();
+    return setQty(data);
+}
 
-export const getSneakers = () => {
+// Add quantity property
+const setQty = (arr) => {
     const sneakers = [];
-    for (const s of sneakersStock) {
-        s.quantity = 0;
-        sneakers.push(s);
+    for (const i of arr) {
+        i.quantity = 0;
+        sneakers.push(i);
     }
-    return sneakers;
+    return sneakers
 }

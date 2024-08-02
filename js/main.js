@@ -1,9 +1,10 @@
 import { getSneakers, createCard } from "./products.js";
 import { addItemToCart, handleButtonCart, handleClearCart, alertProductAdded, handlePay } from "./cart.js";
 
-export const sneakers = getSneakers();
 
-document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('DOMContentLoaded', async() => {
+    const sneakers =  await getSneakers();
     handleButtonCart();
     handleClearCart();
     handlePay();
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const btnAddToCart = card.querySelector('.btn-add');
         btnAddToCart.onclick = function() {
-            addItemToCart(sneaker.id);
+            addItemToCart(sneaker.id, sneakers);
             alertProductAdded(sneaker);
         }
     }

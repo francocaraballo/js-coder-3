@@ -1,4 +1,4 @@
-export const sneakersStock = [
+[
     {
         "id": 1,
         "brand": "Nike",
@@ -69,4 +69,4 @@ export const sneakersStock = [
         "img": "https://img.lalr.co/cms/2024/02/23065229/1-2024-02-23T065217.870.png?",
         "price": 35
     }
-];
+]

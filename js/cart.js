@@ -1,5 +1,3 @@
-import { sneakers } from './main.js'
-
 const cartBtn = document.querySelector('#btn-cart');
 const itemsCartContainer = document.querySelector('#items-cart-container');
 const itemsCount = document.querySelector('#items-count');
@@ -13,9 +11,9 @@ const updateStorageCart = () => {
 	localStorage.setItem('cart', cartJSON);
 }
 
-export const addItemToCart = (id) => {
+export const addItemToCart = (id, arr) => {
 	// Busca el item
-	const item = sneakers.find(e => e.id === id);
+	const item = arr.find(e => e.id === id);
 
 	if (item) {
 		const isRepeat = shopCart.some(e => e.id === item.id);
@@ -27,6 +25,7 @@ export const addItemToCart = (id) => {
 			shopCart.push(item);
 		}
 	}
+	console.log(item);
 	updateStorageCart();
 }
 
@@ -106,6 +105,7 @@ export const handlePay = () => {
 		} else {
 			Swal.fire({
 				title: 'Payment success',
+				text: 'Thanks for your purchase',
 				icon: 'success',
 				timer: 1500
 			});
