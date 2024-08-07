@@ -1,14 +1,22 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
 header {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .navbar {
-    background-color: #F7F3E3;
+    background-color: #fdfbf1;
 }
 
 .card {
     width: 18rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px;
+}
+
+.card .card-text {
+    font-size: 1.1rem;
 }
 
 .card img {

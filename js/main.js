@@ -1,15 +1,12 @@
 import { getSneakers, createCard } from "./products.js";
 import { addItemToCart, handleButtonCart, handleClearCart, alertProductAdded, handlePay } from "./cart.js";
 
-
-
 document.addEventListener('DOMContentLoaded', async() => {
     const sneakers =  await getSneakers();
     handleButtonCart();
     handleClearCart();
     handlePay();
 
-    // Se puede mejorar importando este codigo desde products.js
     const containerProducts = document.getElementById('container-products');
     const dFrag = document.createDocumentFragment();
 
@@ -25,4 +22,4 @@ document.addEventListener('DOMContentLoaded', async() => {
         }
     }
     containerProducts.appendChild(dFrag);
-})
+});

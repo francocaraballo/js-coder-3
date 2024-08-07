@@ -12,7 +12,6 @@ const updateStorageCart = () => {
 }
 
 export const addItemToCart = (id, arr) => {
-	// Busca el item
 	const item = arr.find(e => e.id === id);
 
 	if (item) {
@@ -25,7 +24,6 @@ export const addItemToCart = (id, arr) => {
 			shopCart.push(item);
 		}
 	}
-	console.log(item);
 	updateStorageCart();
 }
 
